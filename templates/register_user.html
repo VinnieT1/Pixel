@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Cadastro{% endblock %}
 
 {% block content %}
 
-REGISTER USER PAGE!!!
+<form method="POST">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    {{ form.username }}
+    <label for="username">Senha:</label>
+    {{ form.password1 }}
+    <label for="username">Confirmar senha:</label>
+    {{ form.password2 }}
+    <input type="submit" value="Cadastrar">
+</form>
 
 {% endblock %}

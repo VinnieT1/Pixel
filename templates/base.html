@@ -8,18 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel | {% block title %}Home{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 </head>
 <body>
     {% include 'navbar.html' %}
-    ---
-    <br>
-
+    
     {% block content %}
         <p>Hello Pixel!</p>
         pk:{{ pk }}
         <br>
         product_type:{{ product_type }}
-        <a href="products">AAA</a>
     {% endblock %}
 </body>
 </html>

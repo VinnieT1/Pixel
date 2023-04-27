@@ -1,9 +1,31 @@
-<nav>
-    <a href="{% url 'home' %}">Home</a><br>
-    <a href="{% url 'all_products' %}">Produtos</a><br>
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
+{% load static %}
+<nav class="navbar">
+    <a href="/" class="logo">
+        <img src="{% static 'images/pixel-logo.png' %}" alt="Pixel Logo" class="logo-img">
+        <p class="logo-text">Pixel</p>
+    </a>
+    <ul class="nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <div class="menu">
+            <a href="/"><li>Home</li></a>
+            <a href="/"><li>About</li></a>
+            <div class="product-types">
+                <a href="/"><li>Produtos</li></a>
+                <ul class="dropdown">
+                    <a href="{% url 'products_type' product_type='CPU' %}"><li>CPU</li></a>
+                    <a href="{% url 'products_type' product_type='GPU' %}"><li>GPU</li></a>
+                    <a href="{% url 'products_type' product_type='PC' %}"><li>PC</li></a>
+                </ul>
+            </div>
+            {% if request.user.is_authenticated %}
+            <div>
+                <p>Olá, {{ request.user }}</p>
+                <a href="{% url 'logout' %}"><li>Logout</li></a>
+            </div>
+            {% else %}
+            <a href="{% url 'login' %}"><li>Login</li></a>
+            {% endif %}
+        </div>
+    </ul>
 </nav>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ pk }}{% endblock %}
+
+{% block content %}
+PRODUTO {{ pk }} ABAIXO:
+<div class="product-wrapper">
+    <h1>{{ product.title }}</h1>
+    <!-- image here {{ product.picture }} -->
+    <p>{{ product.description }}</p>
+    <p>{{ product.price }}</p>
+</div>
+
+{% endblock %}
