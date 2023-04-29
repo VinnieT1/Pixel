@@ -1,6 +1,6 @@
 {% load static %}
 <nav class="navbar">
-    <a href="/" class="logo">
+    <a href="{% url 'products' %}" class="logo">
         <img src="{% static 'images/pixel-logo.png' %}" alt="Pixel Logo" class="logo-img">
         <p class="logo-text">Pixel</p>
     </a>
@@ -8,10 +8,10 @@
         <input type="checkbox" id="checkbox_toggle" />
         <label for="checkbox_toggle" class="hamburger">&#9776;</label>
         <div class="menu">
-            <a href="/"><li>Home</li></a>
-            <a href="/"><li>About</li></a>
+            <a href="{% url 'products' %}"><li>Home</li></a>
+            <a href="{% url 'products' %}"><li>About</li></a>
             <div class="product-types">
-                <a href="/"><li>Produtos</li></a>
+                <a href="{% url 'products' %}"><li>Produtos v</li></a>
                 <ul class="dropdown">
                     <a href="{% url 'products_type' product_type='CPU' %}"><li>CPU</li></a>
                     <a href="{% url 'products_type' product_type='GPU' %}"><li>GPU</li></a>
@@ -19,12 +19,15 @@
                 </ul>
             </div>
             {% if request.user.is_authenticated %}
-            <div>
-                <p>Olá, {{ request.user }}</p>
-                <a href="{% url 'logout' %}"><li>Logout</li></a>
-            </div>
+                <div>
+                    <p>Olá, {{ request.user }}</p>
+                    <a href="{% url 'logout' %}"><li>Logout</li></a>
+                </div>
+                <a href="{% url 'cart' %}"><li>Carrinho</li></a>
+                <p>({{ num_cart_items }})</p>
             {% else %}
-            <a href="{% url 'login' %}"><li>Login</li></a>
+                <a href="{% url 'login' %}"><li>Login</li></a>
+                <a href="{% url 'register' %}"><li>Cadastrar</li></a>
             {% endif %}
         </div>
     </ul>

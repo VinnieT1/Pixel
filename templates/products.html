@@ -6,6 +6,7 @@
 
 {% for product in products %}
     <h3>{{product.title}}</h3>
+    <button data-product="{{product.id}}" data-action="add" class="update-cart">Add to Cart</button>
     <p>{{product.description}}</p>
     <img src="{{ product.image.url }}" alt="product picture">
 {% endfor %}

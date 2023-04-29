@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cart{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h1>CART</h1>
+
+    {% for item in items %}
+        <div class="product">
+            <img class="product-image" src="{{item.product.image.url}}" alt="productImage">
+            <h3>{{ item.product.title }}</h3>
+            <p>{{ item.quantity }}</p>
+            <button data-product="{{item.product.id}}" data-action="add" class="update-cart">+</button>
+            <button data-product="{{item.product.id}}" data-action="remove" class="update-cart">-</button>
+            <p>Preço: R${{ item.product.price }}</p>
+            <p>Total: R${{ item.get_total }}</p>
+        </div>
+        {% endfor %}
+        
+        <h3>Total: R${{ order.get_cart_total }}</h3>
+        <p>Produtos: {{ order.get_cart_items }}</p>
+
+{% endblock %}
