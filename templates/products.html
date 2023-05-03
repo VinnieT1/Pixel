@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Products{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/products.css' %}">{% endblock %}
+
+{% block title %}Produtos{% endblock %}
 
 {% block content %}
 
-{% for product in products %}
-    <h3>{{product.title}}</h3>
-    <button data-product="{{product.id}}" data-action="add" class="update-cart">Add to Cart</button>
-    <p>{{product.description}}</p>
-    <img src="{{ product.image.url }}" alt="product picture">
-{% endfor %}
+{% if products %}
+    {% for product in products %}
+        <div class="product">
+            <a href="{% url 'product' pk=product.pk %}"><h3 class="product-title">{{product.title}}</h3></a>
+            <a href="{% url 'product' pk=product.pk %}"><img class="product-img" src="{{ product.image.url }}" alt="product picture"></a>
+            <button data-product="{{product.id}}" data-action="add" class="update-cart">Adicionar ao Carrinho</button>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>Produto não encontrado</p>
+{% endif %}
 
 {% endblock %}

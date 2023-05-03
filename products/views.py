@@ -3,8 +3,11 @@ from .models import Product
 from cart.models import Order
 # Create your views here.
 def product_view(request, pk):
+    product = Product.objects.get(pk=pk)
+
     context = {
         'pk':pk,
+        'product':product,
     }
 
     if request.user.is_authenticated:
@@ -13,8 +16,12 @@ def product_view(request, pk):
 
     return render(request, 'product.html', context)
 
-def products_view(request):
-    products = Product.objects.order_by('-created_at')
+def products_view(request, query=None):
+    if query:
+        products = Product.objects.filter(title__icontains=query).order_by('-created_at')
+    else:
+        products = Product.objects.order_by('-created_at')
+
     context = {
         'products':products,
     }
@@ -40,3 +47,7 @@ def products_type_view(request, product_type):
         context['num_cart_items'] = order.get_cart_items
 
     return render(request, 'products.html', context)
+
+def search(request):
+    query = request.GET.get('query')
+    return products_view(request, query)

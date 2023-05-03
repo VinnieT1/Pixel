@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+
+    {% for item in items %}
+        <div>
+            <p>{{item.product.title}}</p>
+            <img src="{{item.product.image.url}}" alt="item" style="width: 100px;">
+            <p>Quantidade: {{ item.quantity }}</p>
+            <p>Total: R${{ item.get_total }}</p>
+        </div>
+    {% endfor %}
+
+    <div class="shipping-form">
+        <label for="address">Endereço:</label>
+        {{ form.address }}
+        <label for="city">Cidade:</label>
+        {{ form.city }}
+        <label for="state">Estado:</label>
+        {{ form.state }}
+        <label for="zip_code">CEP:</label>
+        {{ form.zip_code }}
+    </div>
+
+    <p>Valor total da compra: <strong>R${{order.get_cart_total}}</strong></p>
+    <a href="{% url 'purchase_complete' %}"><button>Comprar</button></a>
+{% endblock %}

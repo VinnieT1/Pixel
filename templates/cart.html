@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Cart{% endblock %}
+{% block title %}Carrinho{% endblock %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
@@ -21,9 +21,10 @@
             <p>Preço: R${{ item.product.price }}</p>
             <p>Total: R${{ item.get_total }}</p>
         </div>
-        {% endfor %}
-        
-        <h3>Total: R${{ order.get_cart_total }}</h3>
-        <p>Produtos: {{ order.get_cart_items }}</p>
+    {% endfor %}
+    
+    <h3>Total: R${{ order.get_cart_total }}</h3>
+    <p>Produtos: {{ order.get_cart_items }}</p>
+    <a href="{% url 'checkout' %}"><button>Finalizar Compra</button></a>
 
 {% endblock %}

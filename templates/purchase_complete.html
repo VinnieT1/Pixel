@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+
+    <h1>Obrigado por sua preferência!</h1>
+    <p>Seus produtos chegarão em alguns dias</p>
+
+    <a href="{% url 'products' %}"><button>Voltar ao início</button></a>
+    
+{% endblock %}

@@ -8,8 +8,12 @@
         <input type="checkbox" id="checkbox_toggle" />
         <label for="checkbox_toggle" class="hamburger">&#9776;</label>
         <div class="menu">
-            <a href="{% url 'products' %}"><li>Home</li></a>
-            <a href="{% url 'products' %}"><li>About</li></a>
+            <form action="{% url 'search' %}" method="get">
+                {% csrf_token %}
+                <label for="query">Pesquisar:</label>
+                <input type="text" placeholder="Procure por um produto" id="query" name="query" required>
+                <button type="submit">Procurar</button>
+            </form>
             <div class="product-types">
                 <a href="{% url 'products' %}"><li>Produtos v</li></a>
                 <ul class="dropdown">
