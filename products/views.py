@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Product
 from cart.models import Order
+from users.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+
 # Create your views here.
 def product_view(request, pk):
     product = Product.objects.get(pk=pk)
@@ -13,6 +16,9 @@ def product_view(request, pk):
     if request.user.is_authenticated:
         order, created = Order.objects.get_or_create(user=request.user, complete=False)
         context['num_cart_items'] = order.get_cart_items
+
+    context['register_form'] = UserCreationForm()
+    context['login_form'] = AuthenticationForm()
 
     return render(request, 'product.html', context)
 
@@ -30,6 +36,9 @@ def products_view(request, query=None):
         order, created = Order.objects.get_or_create(user=request.user, complete=False)
         context['num_cart_items'] = order.get_cart_items
 
+    context['register_form'] = UserCreationForm()
+    context['login_form'] = AuthenticationForm()
+
     return render(request, 'products.html', context)
 
 def products_type_view(request, product_type):
@@ -45,6 +54,9 @@ def products_type_view(request, product_type):
     if request.user.is_authenticated:
         order, created = Order.objects.get_or_create(user=request.user, complete=False)
         context['num_cart_items'] = order.get_cart_items
+
+    context['register_form'] = UserCreationForm()
+    context['login_form'] = AuthenticationForm()
 
     return render(request, 'products.html', context)
 

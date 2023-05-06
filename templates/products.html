@@ -12,7 +12,7 @@
         <div class="product">
             <a href="{% url 'product' pk=product.pk %}"><h3 class="product-title">{{product.title}}</h3></a>
             <a href="{% url 'product' pk=product.pk %}"><img class="product-img" src="{{ product.image.url }}" alt="product picture"></a>
-            <button data-product="{{product.id}}" data-action="add" class="update-cart">Adicionar ao Carrinho</button>
+            <button data-product="{{ product.id }}" data-action="add" class="update-cart">Adicionar ao Carrinho</button>
         </div>
     {% endfor %}
 {% else %}

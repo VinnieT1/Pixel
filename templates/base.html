@@ -35,7 +35,6 @@
 <body>
     {% include 'navbar.html' %}
     
-    {% block content %}
         <section id="home" class="hero">
             <div class="container animate">
                 <div class="left-col">
@@ -95,19 +94,21 @@
       
                 <ul class="filter-list">
                     <li>
-                        <button class="filter-btn active">Todos</button>
+                        <a href="{% url 'products' %}"><button class="filter-btn">Todos</button></a>
                     </li>
                     <li>
-                        <button class="filter-btn">Processadores</button>
+                        <a href="{% url 'products_type' product_type='CPU' %}"><button class="filter-btn">Processadores</button></a>
                     </li>
                     <li>
-                        <button class="filter-btn">Placas de vídeo</button>
+                        <a href="{% url 'products_type' product_type='GPU' %}"><button class="filter-btn">Placas de vídeo</button></a>
                     </li>
                     <li>
-                        <button class="filter-btn">Computadores</button>
+                        <a href="{% url 'products_type' product_type='PC' %}"><button class="filter-btn">Computadores</button></a>
                     </li>
                 </ul>
             </div>
+
+            {% block content %}{% endblock %}
         </section>
 
         <section id="testimonials" class="testimonials-section animate">
@@ -208,8 +209,6 @@
             </div>
           </div>
           <div class="overlay hidden"></div>
-
-    {% endblock %}
 
     {% block scripts %}<script type="text/javascript" src="{% static 'js/script.js' %}"></script>{% endblock %}
     <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
