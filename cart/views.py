@@ -7,7 +7,9 @@ from .forms import ShippingAdressForm
 
 # Create your views here.
 def cart_view(request):
+    print('alo')
     if not request.user.is_authenticated:
+        print('not auth')
         return redirect('products')
     
     user = request.user

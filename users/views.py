@@ -6,24 +6,32 @@ from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 def register_user_view(request):
+    print('opa, register')
     if request.user.is_authenticated:
-        return redirect('products')
+        return redirect('home')
+
+    context = {}
 
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         print(request.POST)
 
+        print('form is', form.is_valid())
         if form.is_valid() and form.cleaned_data.get('username') != 'AnonymousUser':
             form.save()
-            return redirect('login')
-    else:
-        form = UserCreationForm()
+            print('salvou')
+            return redirect('home')
+    
+    context['register_form'] = UserCreationForm()
+    context['login_form'] = AuthenticationForm()
 
-    return render(request, 'register_user.html', {'form': form})
+    return render(request, 'base.html', context)
 
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect('products')
+        return redirect('home')
+
+    context = {}
 
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
@@ -35,12 +43,13 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('products')
-    else:
-        form = AuthenticationForm()
+                return redirect('home')
+            
+    context['register_form'] = UserCreationForm()
+    context['login_form'] = AuthenticationForm()
 
-    return render(request, 'login.html', {'form':form})
+    return render(request, 'base.html', context)
 
 def logout_view(request):
     logout(request)
-    return redirect('products')
+    return redirect('home')

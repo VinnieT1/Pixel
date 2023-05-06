@@ -34,7 +34,7 @@ def products_view(request, query=None):
 
 def products_type_view(request, product_type):
     if product_type not in ['CPU', 'GPU', 'PC']:
-        return redirect('products')
+        return redirect('home')
 
     products = Product.objects.filter(product_type=product_type)
     context = {
