@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style2/style2.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <a class="logo" href="index.html">PC<span>Space</span></a>
+        <img
+          id="mobile-cta"
+          class="mobile-menu"
+          src="images/menu.png"
+          alt="Open Navigation"
+          width="21"
+          height="21"
+        />
+        <nav>
+          <img
+            id="mobile-exit"
+            class="mobile-menu-exit"
+            src="images/close.png"
+            alt="Close Navigation"
+            width="17"
+          />
+          <ul class="primary-nav nav-links">
+            <li><a class="nav-link" href="#home">Inicio</a></li>
+            <li><a class="nav-link" href="#produtos">Produtos</a></li>
+            <li><a class="nav-link" href="#testimonials">Avaliações</a></li>
+            <li><a class="contact nav-link" href="#contact">Contato</a></li>
+          </ul>
+
+          <ul class="secondary-nav">
+            <li>
+              <a href="#"
+                ><img
+                  src="images/carro1.png"
+                  class="nav-link imgcart"
+                  alt=""
+                  width="28"
+                  height="28"
+              /></a>
+            </li>
+            <li class="go-premium-cta">
+              <a class="nav-link open-modal" href="#">Cadastre-se</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CARRINHO -->
+    <section class="carrinho">
+      <div class="titulo-carrinho">
+        <img src="images/carrop.png" alt="" width="34px" height="34px" />
+        <h2>Meu carrinho</h2>
+      </div>
+
+      <div class="carrinho-geral">
+        <div class="carrinho-esquerda">
+          <div class="produto-carrinho">
+            <img src="images/pc.png" alt="" />
+            <p>Nome do produto</p>
+            <p>Valor do produto</p>
+            <p>Valor total</p>
+            <div class="quantidade">
+              <button>-</button>
+              <h4>3</h4>
+              <button>+</button>
+            </div>
+          </div>
+
+          <div class="produto-carrinho">
+            <img src="images/pc.png" alt="" />
+            <p>Nome do produto</p>
+            <p>Valor do produto</p>
+            <p>Valor total</p>
+            <div class="quantidade">
+              <button>-</button>
+              <h4>3</h4>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="carrinho-direita">
+          <div class="checkout">
+            <h3>Checkout</h3>
+            <div class="shipping-form">
+              <label for="adress">Endereço: </label> <input type="text" />
+              <label for="adress">Cidade: </label> <input type="text" />
+              <label for="adress">Estado: </label> <input type="text" />
+              <label for="adress">CEP: </label> <input type="text" />
+            </div>
+          </div>
+
+          <div class="resumo">
+            <div class="carrinho-d-cima">
+              <h3>Resumo</h3>
+              <p>Total:</p>
+            </div>
+            <a href="" class="finalizar-pedido">Finalizar pedido</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
