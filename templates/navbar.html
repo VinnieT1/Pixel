@@ -2,11 +2,11 @@
 
 <header class="header">
     <div class="container">
-      <a class="logo" href="{% url 'home' %}">PC<span>Space</span></a>
+      <a class="logo" href="{% url 'home' %}">PC<span>Pixel</span></a>
       <img
         id="mobile-cta"
         class="mobile-menu"
-        src="images/menu.png"
+        src="{% static 'images/menu.png' %}"
         alt="Open Navigation"
         width="21"
         height="21"
@@ -15,13 +15,13 @@
         <img
           id="mobile-exit"
           class="mobile-menu-exit"
-          src="images/close.png"
+          src="{% static 'images/close.png' %}"
           alt="Close Navigation"
           width="17"
         />
         <ul class="primary-nav nav-links">
-          <li><a class="nav-link" href="#home">Inicio</a></li>
-          <li><a class="nav-link" href="#collection">Produtos</a></li>
+          <li><a class="nav-link" href="{% url 'home' %}">Inicio</a></li>
+          <li><a class="nav-link" href="{% url 'products' %}">Produtos</a></li>
           <li><a class="nav-link" href="#testimonials">Avaliações</a></li>
           <li><a class="contact nav-link" href="#contact">Contato</a></li>
         </ul>

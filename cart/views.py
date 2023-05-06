@@ -10,12 +10,12 @@ def cart_view(request):
     print('alo')
     if not request.user.is_authenticated:
         print('not auth')
-        return redirect('products')
+        return redirect('home')
     
     user = request.user
     order, created = Order.objects.get_or_create(user=user, complete=False)
     items = order.orderitem_set.all()
-    
+
     context = {
         'items':items,
         'order':order,
