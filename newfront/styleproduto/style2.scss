@@ -201,6 +201,14 @@ section {
     }
   }
 }
+
+.product-description {
+  margin-top: 2em;
+
+  p {
+    font-size: 18px;
+  }
+}
 ////////////////////////////////MEDIA QUERIES
 /// //Screens 768px+ wide
 @media only screen and (min-width: 768px) {
@@ -258,6 +266,11 @@ section {
     }
   }
 
+  .product-page {
+    h1 {
+      font-size: 26px;
+    }
+  }
   .section-produto {
     display: flex;
     flex-direction: row;
@@ -268,6 +281,18 @@ section {
       img {
         width: 350px;
       }
+    }
+  }
+
+  .product-description {
+    margin-top: 3em;
+    h2 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 19px;
+      max-width: 1100px;
     }
   }
 }
