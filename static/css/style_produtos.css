@@ -113,77 +113,75 @@ section {
   transition: 0.2s ease;
 }
 
-.section-produto {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
+.store-products h1 {
+  text-align: center;
+  margin-bottom: 2em;
 }
-.section-produto h1 {
+.store-products p {
   margin: 0;
 }
-.section-produto .produto-left {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.store-products .cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
 }
-.section-produto .produto-left img {
-  width: 230px;
-}
-.section-produto .produto-right {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
+.store-products .cards .card {
   background-color: white;
-  border-radius: 20px;
-  padding: 2em 1.5em;
+  border-radius: 10px;
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
 }
-.section-produto .produto-right h3 {
-  margin: 0;
+.store-products .cards .card .foto {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
-.section-produto .produto-right p {
-  margin: 0;
+.store-products .cards .card .foto img {
+  width: 170px;
 }
-.section-produto .produto-right p .store {
+.store-products .cards .card .product-name {
   font-weight: bold;
 }
-.section-produto .produto-right .price {
+.store-products .cards .card .price {
   font-weight: bold;
   color: #9a00f3;
   font-size: 22px;
 }
-.section-produto .produto-right a {
+.store-products .cards .card a {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  background-color: #9a00f3;
-  border-radius: 20px;
+  border-radius: 15px;
   text-decoration: none;
-  color: white;
-  padding: 12px 0px;
-  font-size: 23px;
+  color: black;
+  padding: 10px 0px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.2s ease;
 }
-.section-produto .produto-right a img {
-  width: 35px;
-}
-.section-produto .produto-right a:hover {
-  background-color: rgba(154, 0, 243, 0.7058823529);
-  transition: 0.2s ease;
+.store-products .cards .card a img {
+  width: 26px;
 }
 
-.product-description {
-  margin-top: 2em;
+@media (min-width: 600px) {
+  .store-products .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }
-.product-description p {
-  font-size: 18px;
+@media (min-width: 1000px) {
+  .store-products .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-
 @media only screen and (min-width: 768px) {
   .mobile-menu,
   .mobile-menu-exit {
@@ -229,30 +227,6 @@ section {
   .header .container .modal {
     min-width: 60%;
   }
-  .product-page h1 {
-    font-size: 26px;
-  }
-  .section-produto {
-    display: flex;
-    flex-direction: row;
-    margin-top: 2em;
-  }
-  .section-produto .produto-left {
-    width: 40%;
-  }
-  .section-produto .produto-left img {
-    width: 350px;
-  }
-  .product-description {
-    margin-top: 3em;
-  }
-  .product-description h2 {
-    font-size: 26px;
-  }
-  .product-description p {
-    font-size: 19px;
-    max-width: 1100px;
-  }
 }
 @media only screen and (min-width: 1080px) {
   .container {
@@ -262,33 +236,24 @@ section {
   section {
     padding: 3.5em 4em;
   }
-  .section-produto .produto-left {
-    width: 45%;
-  }
-  .section-produto .produto-left img {
-    width: 500px;
-  }
-  .section-produto .produto-right {
-    justify-content: space-between;
-    width: 55%;
-    padding: 3em 2em;
-  }
-  .section-produto .produto-right h3 {
-    font-size: 22px;
-  }
-  .section-produto .produto-right .vendido {
-    margin-top: 0.5em;
-    font-size: 18px;
-  }
-  .section-produto .produto-right .price {
-    font-size: 30px;
-  }
-  .section-produto .produto-right a {
-    width: 200px;
-    border-radius: 18px;
-    font-size: 20px;
-  }
-  .section-produto .produto-right a img {
-    width: 28px;
-  }
-}/*# sourceMappingURL=style2.css.map */
+}
+button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background-color: #9a00f3;
+  border-radius: 20px;
+  border-style: none;
+  text-decoration: none;
+  color: white;
+  padding: 12px 12px;
+  font-size: 23px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+button img {
+  width: 35px;
+}/*# sourceMappingURL=style_produtos.css.map */

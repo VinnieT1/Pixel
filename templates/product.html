@@ -1,13 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'css/style_produto.css' %}">{% endblock %}
 
 {% block title %}Produto{% endblock %}
 
 {% block content %}
-    <div class="product-wrapper">
+<section class="product-page">
+    <h1>Página do produto</h1>
+
+    <div class="section-produto">
+      <div class="produto-left">
+        <img src="{{product.image.url}}" alt="" />
+      </div>
+      <div class="produto-right">
+        <div class="description">
+          <h3>
+            {{product.title}}
+          </h3>
+          <p class="vendido">
+            Vendido e entregue por: <span class="store">PcPixel</span>
+          </p>
+        </div>
+        <p class="price">R$ <span>{{product.price}}</span></p>
+        <button data-product="{{ product.id }}" data-action="add" class="update-cart"><img src="{% static 'images/carro1.png' %}" alt="" />ADICIONAR AO CARRINHO</button>
+      </div>
+    </div>
+
+    <div class="product-description">
+      <h2>Descrição</h2>
+      <p>
+        {{product.description}}
+      </p>
+    </div>
+  </section>
+
+
+    <!-- <div class="product-wrapper">
         <h1>{{ product.title }}</h1>
         <img src="{{ product.image.url }}" alt="product picture">
         <p>{{ product.description }}</p>
         <p>{{ product.price }}</p>
         <button data-product="{{product.id}}" data-action="add" class="update-cart">Add to Cart</button>
-    </div>
+    </div> -->
 {% endblock %}

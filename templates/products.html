@@ -1,22 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block css %}<link rel="stylesheet" href="{% static 'css/products.css' %}">{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/style_produtos.css' %}">{% endblock %}
 
 {% block title %}Produtos{% endblock %}
 
 {% block content %}
 
-{% if products %}
-    {% for product in products %}
-        <div class="product">
-            <a href="{% url 'product' pk=product.pk %}"><h3 class="product-title">{{product.title}}</h3></a>
-            <a href="{% url 'product' pk=product.pk %}"><img class="product-img" src="{{ product.image.url }}" alt="product picture"></a>
-            <button data-product="{{ product.id }}" data-action="add" class="update-cart">Adicionar ao Carrinho</button>
-        </div>
-    {% endfor %}
-{% else %}
-    <p>Produto não encontrado</p>
-{% endif %}
+<section class="store-products">
+    <h1>Todos os produtos</h1>
+    <div class="cards">
+        {% if products %}
+            {% for product in products %}
+                <div class="card">
+                    <div class="foto"><a href="{% url 'product' pk=product.pk %}"><img src="{{product.image.url}}" alt="" /></a></div>
+                    <p class="product-name"><a href="{% url 'product' pk=product.pk %}">{{product.title}}</p></a>
+                    <p class="price">R$ {{product.price}}</p>
+                    <button data-product="{{ product.id }}" data-action="add" class="update-cart"><img src="{% static 'images/carro1.png' %}" alt="" />ADICIONAR AO CARRINHO</button>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Sem produtos</p>
+        {% endif %}
+    </div>
+</section>
 
 {% endblock %}

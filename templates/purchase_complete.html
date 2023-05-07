@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Checkout{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/purchase_complete.css' %}">{% endblock %}
 
 {% block content %}
+    <div class="card-container">
+        <div class="card">
+            <h1>Obrigado por sua preferência!</h1>
+            <p>Seus produtos chegarão em alguns dias</p>
 
-    <h1>Obrigado por sua preferência!</h1>
-    <p>Seus produtos chegarão em alguns dias</p>
-
-    <a href="{% url 'products' %}"><button>Voltar ao início</button></a>
-    
+            <a href="{% url 'home' %}"><button>Voltar ao início</button></a>
+        </div>
+    </div>
 {% endblock %}

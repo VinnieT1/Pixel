@@ -82,7 +82,9 @@ const headerObserver = new IntersectionObserver(stickyNav, {
   threshold: 0,
   rootMargin: "-140px",
 });
-headerObserver.observe(hero);
+if (hero) {
+  headerObserver.observe(hero);
+}
 
 /////////////////////////////
 /// Section load animation

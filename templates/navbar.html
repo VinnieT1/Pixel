@@ -27,8 +27,8 @@
         </ul>
 
         <ul class="secondary-nav">
-          <li>
           {% if request.user.is_authenticated %}
+          <li>
             <a href="{% url 'cart' %}"
               ><img
                 src="{% static 'images/carro1.png' %}"

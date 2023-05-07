@@ -19,7 +19,7 @@
         {% if items %}
             {% for item in items %}
                 <div class="produto-carrinho">
-                    <img src="{% static 'images/pc.png' %}" alt="" />
+                    <img src="{{ item.product.image.url }}" alt="" />
                     <p>{{ item.product.title }}</p>
                     <p>Preço: R$ {{ item.product.price }}</p>
                     <p>Total: R$ {{ item.get_total }}</p>
@@ -51,11 +51,13 @@
             <h3>Resumo</h3>
             <p>Total: <strong>R$ {{ order.get_cart_total }}</strong></p>
           </div>
-          <a href="" class="finalizar-pedido">Finalizar pedido</a>
+          <a href="{% url 'purchase_complete' %}" class="finalizar-pedido">Finalizar pedido</a>
         </div>
       </div>
     </div>
   </section>
+
+{% endblock %}
 
     <!-- {% for item in items %}
         <div class="product">
@@ -72,5 +74,3 @@
     <h3>Total: R${{ order.get_cart_total }}</h3>
     <p>Produtos: {{ order.get_cart_items }}</p>
     <a href="{% url 'checkout' %}"><button>Finalizar Compra</button></a> -->
-
-{% endblock %}

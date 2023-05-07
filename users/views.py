@@ -6,7 +6,6 @@ from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 def register_user_view(request):
-    print('opa, register')
     if request.user.is_authenticated:
         return redirect('home')
 
@@ -14,12 +13,9 @@ def register_user_view(request):
 
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
-        print(request.POST)
 
-        print('form is', form.is_valid())
         if form.is_valid() and form.cleaned_data.get('username') != 'AnonymousUser':
             form.save()
-            print('salvou')
             return redirect('home')
     
     context['register_form'] = UserCreationForm()
