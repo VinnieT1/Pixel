@@ -138,6 +138,5 @@ GitHub.sublime-settings
 
 # SASS #
 .sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
+**.css.map
+**.scss
